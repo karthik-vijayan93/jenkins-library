@@ -1,5 +1,7 @@
 package kv.utils
 
-def add(first, second) {
-    return first+second
+class Calculator {
+    static int add(int first, int second){
+        return first+second
+    }
 }
