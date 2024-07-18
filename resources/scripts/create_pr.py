@@ -19,7 +19,8 @@ def create_pull_request(repo_url: str, source_branch: str, destination_branch: s
     try:
         response = requests.post(api_url, json=pr_data, headers=headers)
         if response.status_code == 201:
-            print("pull request created successfully")
+            pr_url = response.json().get('html_url')
+            print(f"Pull request created successfully: {pr_url}")
         else:
             print(f"failed to create pull request: {response.status_code}")
             print(response.json())
