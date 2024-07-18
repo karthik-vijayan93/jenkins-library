@@ -1,5 +1,6 @@
 import sys
 import requests
+import os
 
 def create_pull_request(repo_url: str, source_branch: str, destination_branch: str, pr_title: str, pr_description: str, token: str):
     api_url = repo_url.replace('https://github.ibm.com/', 'https://api.github.ibm.com/repos/') + '/pulls'
@@ -29,5 +30,5 @@ if __name__ == "__main__":
     destination_branch = sys.argv[3]
     pr_title = sys.argv[4]
     pr_description = sys.argv[5]
-    token = sys.argv[6] 
+    token = os.environ['GITHUB_TOKEN']
     create_pull_request(repo_url, source_branch, destination_branch, pr_title, pr_description, token)
