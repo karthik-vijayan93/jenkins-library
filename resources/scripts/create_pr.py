@@ -24,6 +24,7 @@ def create_pull_request(repo_url: str, source_branch: str, destination_branch: s
         else:
             print(f"failed to create pull request: {response.status_code}")
             print(response.json())
+            sys.exit(1)
     except Exception as e:
         print(f"An error occurred: {e}")
 
